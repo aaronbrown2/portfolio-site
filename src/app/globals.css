@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-white: 255 255 255;
+  --color-navy: 23 32 51;
+  --color-navy-deep: 15 23 42;
+  --color-brown-ink: 59 36 24;
+  --color-brown-deep: 92 51 32;
+  --color-brown: 107 57 28;
+  --color-brown-muted: 111 75 53;
+  --color-tan: 196 154 117;
+  --color-cream: 251 247 241;
+  --color-line: 226 232 240;
+  --color-moss: 86 107 79;
+  --color-tide: 47 125 118;
+  --color-brass: 163 111 44;
+  --color-cloud: 238 243 241;
+  --background: rgb(var(--color-white));
+  --foreground: rgb(var(--color-navy));
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --blue-ink: rgb(var(--color-navy));
+  --blue-deep: rgb(var(--color-navy-deep));
+  --brown-ink: rgb(var(--color-brown-ink));
+  --brown-deep: rgb(var(--color-brown-deep));
+  --brown: rgb(var(--color-brown));
+  --brown-soft: rgb(var(--color-tan));
+  --cream: rgb(var(--color-cream));
+  --paper: rgb(var(--color-white));
+  --line: rgb(var(--color-line));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    var(--font-sans),
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(138, 79, 43, 0.48);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: rgba(138, 79, 43, 0.18);
+}
+
+.card-border {
+  border: 1px solid rgba(24, 32, 31, 0.11);
+}
+
+.balanced {
+  text-wrap: balance;
+}
+
+.file-tab-link {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.65rem 0.65rem 0.28rem 0.28rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0),
+    0 14px 30px rgba(255, 255, 255, 0);
+  position: relative;
+  transition:
+    background-color 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 260ms ease,
+    transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.file-tab-link:hover {
+  background-color: rgba(138, 79, 43, 0.07);
+  color: var(--blue-ink);
+}
+
+.file-tab-link--active,
+.file-tab-link--active:hover {
+  background-color: #ffffff;
+  border: 1px solid rgba(23, 32, 51, 0.1);
+  border-color: rgba(23, 32, 51, 0.1);
+  border-bottom-color: #ffffff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.96),
+    0 14px 30px rgba(15, 23, 42, 0.08);
+  color: var(--blue-ink);
+}
+
+.mobile-menu-link {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0) scale(0.985);
+  transition:
+    opacity 420ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 520ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease;
+}
+
+.mobile-menu-link--open {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.portal-shell {
+  background:
+    radial-gradient(
+      circle at 12% 14%,
+      rgba(196, 154, 117, 0.16),
+      transparent 24rem
+    ),
+    radial-gradient(
+      circle at 88% 20%,
+      rgba(23, 32, 51, 0.08),
+      transparent 28rem
+    ),
+    linear-gradient(180deg, #ffffff 0%, #ffffff 62%, #fbf7f1 100%);
+  perspective: 1400px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
