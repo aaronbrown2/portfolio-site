@@ -55,7 +55,7 @@ function CaseSection({
   title: string;
 }) {
   return (
-    <ScrollFocus>
+    <ScrollFocus initialVisible>
       <section className="rounded-lg border border-navy/10 bg-white p-6 shadow-[0_18px_70px_rgba(15,23,42,0.06)]">
         <h2 className="text-2xl font-bold text-navy">{title}</h2>
         <div className="mt-4">{children}</div>
@@ -188,7 +188,7 @@ export default async function ProjectCaseStudyPage({
             <DetailList items={improvementItems} />
           </CaseSection>
 
-          <ScrollFocus>
+          <ScrollFocus initialVisible>
             <div className="rounded-lg border border-navy/10 bg-white p-6 text-navy shadow-[0_18px_70px_rgba(15,23,42,0.06)]">
               <h2 className="text-2xl font-bold">
                 Continue through the portfolio

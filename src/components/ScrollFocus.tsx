@@ -78,11 +78,12 @@ export function ScrollFocus({
   children,
   className,
   fadeOut = true,
-  initialVisible: _initialVisible = false,
+  initialVisible = false,
 }: ScrollFocusProps) {
   const ref = useRef<HTMLDivElement>(null);
   const frame = useRef<number | null>(null);
   const [focusStyle, setFocusStyle] = useState<FocusStyle>(visibleStyle);
+  const hasSkippedInitialUpdate = useRef(false);
 
   const update = useCallback(() => {
     frame.current = null;
@@ -101,7 +102,12 @@ export function ScrollFocus({
   }, [update]);
 
   useEffect(() => {
-    update();
+    if (initialVisible && !hasSkippedInitialUpdate.current) {
+      hasSkippedInitialUpdate.current = true;
+    } else {
+      update();
+    }
+
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
 
@@ -113,7 +119,7 @@ export function ScrollFocus({
         window.cancelAnimationFrame(frame.current);
       }
     };
-  }, [requestUpdate, update]);
+  }, [initialVisible, requestUpdate, update]);
 
   return (
     <div
