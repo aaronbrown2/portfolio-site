@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   },
   description:
     "Full-stack software developer building secure, user-centered web applications with a background in creative technology, audio production, entrepreneurship, and client web work.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
