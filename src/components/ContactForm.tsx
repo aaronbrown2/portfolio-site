@@ -1,6 +1,8 @@
+"use client";
+
 import { Send } from "lucide-react";
+import { type FormEvent, useState } from "react";
 import { cn } from "@/lib/utils";
-import { site } from "@/lib/site";
 
 type ContactFormProps = {
   idPrefix?: string;
@@ -8,11 +10,15 @@ type ContactFormProps = {
   tone?: "light" | "warm";
 };
 
+type SubmitStatus = "idle" | "sending" | "success" | "error";
+
 export function ContactForm({
   idPrefix = "contact",
   className,
   tone = "light",
 }: ContactFormProps) {
+  const [status, setStatus] = useState<SubmitStatus>("idle");
+  const [statusMessage, setStatusMessage] = useState("");
   const isWarm = tone === "warm";
   const labelClass = cn(
     "grid gap-2 text-sm font-semibold",
@@ -24,10 +30,47 @@ export function ContactForm({
       ? "border-navy/10 bg-white text-navy placeholder:text-navy/40 focus:border-brown focus:bg-white"
       : "border-line bg-cloud/45 text-ink placeholder:text-ink/42 focus:border-tide focus:bg-white",
   );
+  const statusClass = cn(
+    "text-sm font-semibold",
+    status === "success"
+      ? "text-tide"
+      : status === "error"
+        ? "text-brown"
+        : "text-navy/60",
+  );
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+    setStatusMessage("Sending...");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/contact", {
+        body: JSON.stringify(Object.fromEntries(formData)),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to send message");
+      }
+
+      form.reset();
+      setStatus("success");
+      setStatusMessage("Message sent. Thanks for reaching out.");
+    } catch {
+      setStatus("error");
+      setStatusMessage("Something went wrong. Please try again in a moment.");
+    }
+  }
 
   return (
     <form
-      action={`https://formsubmit.co/${site.email}`}
       className={cn(
         "grid gap-5 rounded-lg border p-5 sm:p-6",
         isWarm
@@ -35,15 +78,12 @@ export function ContactForm({
           : "border-line bg-white shadow-sm",
         className,
       )}
-      method="POST"
+      onSubmit={handleSubmit}
     >
-      <input name="_captcha" type="hidden" value="false" />
-      <input name="_subject" type="hidden" value="Portfolio contact form" />
-      <input name="_template" type="hidden" value="table" />
       <input
         autoComplete="off"
         className="hidden"
-        name="_honey"
+        name="company"
         tabIndex={-1}
         type="text"
       />
@@ -92,13 +132,19 @@ export function ContactForm({
             ? "bg-navy text-white hover:bg-navy-deep focus-visible:outline-brown"
             : "bg-ink text-white hover:bg-navy-deep focus-visible:outline-tide",
         )}
+        disabled={status === "sending"}
         type="submit"
       >
         <span className="inline-flex h-4 w-4 items-center justify-center">
           <Send aria-hidden className="h-4 w-4" />
         </span>
-        Send Message
+        {status === "sending" ? "Sending..." : "Send Message"}
       </button>
+      {statusMessage ? (
+        <p aria-live="polite" className={statusClass}>
+          {statusMessage}
+        </p>
+      ) : null}
     </form>
   );
 }
