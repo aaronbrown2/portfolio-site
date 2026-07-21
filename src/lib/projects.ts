@@ -58,7 +58,6 @@ export const projects: Project[] = [
     ],
     tags: ["React", "FastAPI", "PostgreSQL", "Supabase Auth", "CI/CD"],
     links: [
-      { label: "Live site", href: "https://healthnest-demo.vercel.app" },
       { label: "GitHub", href: "https://github.com/BUMETCS673/HealthNest" },
     ],
     imageSrc: "/projects/healthnest-ui.png",
@@ -100,7 +99,6 @@ export const projects: Project[] = [
     ],
     tags: ["FastAPI", "PostgreSQL", "Google Cloud Run", "Docker", "Neon"],
     links: [
-      { label: "Live site", href: "https://dental-records.com" },
       { label: "GitHub", href: `${githubProfileUrl}/dental-records` },
     ],
     featured: true,
