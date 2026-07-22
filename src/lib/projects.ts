@@ -99,6 +99,7 @@ export const projects: Project[] = [
     ],
     tags: ["FastAPI", "PostgreSQL", "Google Cloud Run", "Docker", "Neon"],
     links: [
+      { label: "Demo site", href: "https://dental-records.com" },
       { label: "GitHub", href: `${githubProfileUrl}/dental-records` },
     ],
     featured: true,
