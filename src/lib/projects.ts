@@ -58,6 +58,7 @@ export const projects: Project[] = [
     ],
     tags: ["React", "FastAPI", "PostgreSQL", "Supabase Auth", "CI/CD"],
     links: [
+      { label: "Demo site", href: "https://healthnest-pulse.com/" },
       { label: "GitHub", href: "https://github.com/BUMETCS673/HealthNest" },
     ],
     imageSrc: "/projects/healthnest-ui.png",
