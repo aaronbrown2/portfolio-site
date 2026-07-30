@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <section className="portal-shell min-h-screen text-navy">
       <div className="mx-auto flex min-h-screen max-w-7xl items-center px-4 py-14 sm:px-6 lg:px-8 lg:py-24">
-        <div className="mx-auto w-full max-w-3xl text-center sm:text-left">
+        <div className="mx-auto w-full max-w-3xl text-center">
           <h1 className="text-5xl font-bold leading-tight text-navy sm:text-6xl">
             About <span className="text-brown">Me</span>
           </h1>
