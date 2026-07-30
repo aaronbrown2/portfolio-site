@@ -18,7 +18,7 @@ export default function HomePage() {
         >
           <div className="text-center lg:text-left">
             <h1 className="balanced mx-auto max-w-4xl text-5xl font-bold leading-[0.96] text-navy sm:text-7xl lg:mx-0 lg:text-8xl">
-              Hi, I’m <span className="text-brown">Aaron</span>
+              Hi, I’m <span className="text-brown">Aaron.</span>
             </h1>
             <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-navy/70 lg:mx-0">
               A full-stack software developer seeking product-focused

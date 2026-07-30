@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { CTAButton } from "@/components/CTAButton";
-import { Headshot } from "@/components/Headshot";
 
 export const metadata: Metadata = {
   title: "About",
@@ -10,25 +9,10 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <section className="portal-shell min-h-screen text-navy">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 min-[900px]:grid min-[900px]:grid-cols-[minmax(14rem,0.55fr)_minmax(0,1fr)] min-[900px]:items-start min-[900px]:gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12 lg:px-8 lg:py-24">
-        <div className="mx-auto mb-10 grid w-full max-w-[16rem] gap-6 min-[500px]:max-[691px]:max-w-none min-[500px]:max-[691px]:grid-cols-[minmax(10rem,16rem)_minmax(0,1fr)] min-[500px]:max-[691px]:items-center min-[692px]:float-left min-[692px]:mb-4 min-[692px]:mr-8 min-[692px]:max-w-[18rem] min-[900px]:sticky min-[900px]:top-28 min-[900px]:float-none min-[900px]:mb-0 min-[900px]:mr-0 min-[900px]:max-w-none">
-          <div>
-            <Headshot
-              className="aspect-square border-navy/10 bg-white shadow-[0_26px_90px_rgba(15,23,42,0.10)] min-[900px]:aspect-auto"
-              priority
-            />
-          </div>
-          <h1 className="text-center text-[2.35rem] font-bold leading-none text-navy min-[500px]:max-[691px]:text-[4rem] min-[692px]:hidden">
-            <span className="min-[500px]:max-[691px]:block">Hi, I'm</span>{" "}
-            <span className="text-brown min-[500px]:max-[691px]:block">
-              Aaron
-            </span>
-          </h1>
-        </div>
-
-        <div className="mx-auto w-full max-w-3xl text-center min-[692px]:max-w-none min-[692px]:text-left min-[900px]:max-w-3xl">
-          <h1 className="hidden text-5xl font-bold leading-tight text-navy min-[692px]:block sm:text-6xl">
-            Hi, I'm <span className="text-brown">Aaron</span>
+      <div className="mx-auto flex min-h-screen max-w-7xl items-center px-4 py-14 sm:px-6 lg:px-8 lg:py-24">
+        <div className="mx-auto w-full max-w-3xl text-center sm:text-left">
+          <h1 className="text-5xl font-bold leading-tight text-navy sm:text-6xl">
+            About <span className="text-brown">Me</span>
           </h1>
 
           <div className="mt-8 space-y-6 text-lg leading-8 text-navy/74">
