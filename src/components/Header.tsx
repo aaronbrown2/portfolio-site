@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
   { href: "/resume", label: "Resume" },
 ];
 
@@ -40,7 +39,7 @@ export function Header() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav
             aria-label="Primary navigation"
-            className="hidden lg:grid lg:grid-cols-5"
+            className="hidden lg:grid lg:grid-cols-4"
           >
             {navItems.map((item) => (
               <Link
