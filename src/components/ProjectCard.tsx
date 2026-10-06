@@ -39,7 +39,7 @@ export function ProjectCard({ project, reverse }: ProjectCardProps) {
         </div>
         <div className="mt-5 flex flex-wrap gap-2 sm:mt-7 sm:gap-3">
           <Link
-            className="inline-flex items-center gap-2 rounded-md bg-navy px-3 py-2 text-sm font-bold text-white transition hover:bg-navy-deep"
+            className="relative z-10 inline-flex min-h-11 items-center gap-2 rounded-md bg-navy px-3 py-2 text-sm font-bold text-white transition hover:bg-navy-deep"
             href={`/projects/${project.slug}`}
           >
             Enter Project
@@ -58,7 +58,7 @@ export function ProjectCard({ project, reverse }: ProjectCardProps) {
 
             return isInternal ? (
               <Link
-                className="inline-flex items-center gap-2 rounded-md border border-navy/10 px-3 py-2 text-sm font-semibold text-navy/70 transition hover:border-brown/40 hover:text-navy"
+                className="relative z-10 inline-flex min-h-11 items-center gap-2 rounded-md border border-navy/10 px-3 py-2 text-sm font-semibold text-navy/70 transition hover:border-brown/40 hover:text-navy"
                 href={link.href}
                 key={link.label}
               >
@@ -66,7 +66,7 @@ export function ProjectCard({ project, reverse }: ProjectCardProps) {
               </Link>
             ) : (
               <a
-                className="inline-flex items-center gap-2 rounded-md border border-navy/10 px-3 py-2 text-sm font-semibold text-navy/70 transition hover:border-brown/40 hover:text-navy"
+                className="relative z-10 inline-flex min-h-11 items-center gap-2 rounded-md border border-navy/10 px-3 py-2 text-sm font-semibold text-navy/70 transition hover:border-brown/40 hover:text-navy"
                 href={link.href}
                 key={link.label}
                 rel="noreferrer"

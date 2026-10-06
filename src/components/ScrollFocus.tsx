@@ -19,7 +19,6 @@ type ScrollFocusProps = {
 type FocusStyle = {
   filter: string;
   opacity: number;
-  transform: string;
 };
 
 const clearStart = 0.25;
@@ -52,26 +51,17 @@ function getFocusStyle(
     opacity = 1 - smoothstep(clearEnd, hiddenBottom, centerRatio);
   }
 
-  const distanceFromCenter = centerRatio - 0.5;
-  const absoluteDistance = Math.abs(distanceFromCenter);
-  const easedDistance = clamp(absoluteDistance / 0.42, 0, 1);
   const blur = (1 - opacity) * 7;
-  const y = distanceFromCenter * -40;
-  const z = -easedDistance * 80;
-  const rotateX = -distanceFromCenter * 7;
-  const scale = 0.965 + opacity * 0.035;
 
   return {
     filter: `blur(${blur.toFixed(2)}px)`,
     opacity,
-    transform: `translate3d(0, ${y.toFixed(2)}px, ${z.toFixed(2)}px) rotateX(${rotateX.toFixed(2)}deg) scale(${scale.toFixed(3)})`,
   };
 }
 
 const visibleStyle: FocusStyle = {
   filter: "blur(0)",
   opacity: 1,
-  transform: "translate3d(0, 0, 0) rotateX(0deg) scale(1)",
 };
 
 export function ScrollFocus({
@@ -128,10 +118,8 @@ export function ScrollFocus({
       style={
         {
           ...focusStyle,
-          transition:
-            "opacity 120ms linear, filter 120ms linear, transform 120ms linear",
-          transformStyle: "preserve-3d",
-          willChange: "opacity, filter, transform",
+          transition: "opacity 120ms linear, filter 120ms linear",
+          willChange: "opacity, filter",
         } satisfies CSSProperties
       }
     >

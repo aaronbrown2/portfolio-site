@@ -68,7 +68,7 @@ export default function HomePage() {
               My Work
             </h2>
             <Link
-              className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brown hover:text-navy"
+              className="relative z-10 mt-3 inline-flex min-h-11 items-center gap-2 rounded-md px-3 py-2 text-sm font-bold text-brown hover:bg-cream hover:text-navy"
               href="/projects"
             >
               All projects

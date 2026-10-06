@@ -103,6 +103,9 @@ export const projects: Project[] = [
       { label: "Demo site", href: "https://dental-records.com" },
       { label: "GitHub", href: `${githubProfileUrl}/dental-records` },
     ],
+    imageSrc: "/projects/dental-records-ui.png",
+    imageSrcTablet: "/projects/dental-records-ui-tablet.png",
+    imageSrcMobile: "/projects/dental-records-ui-mobile.png",
     featured: true,
   },
   {
